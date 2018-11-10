@@ -1,0 +1,16 @@
+{
+     "staffTypes": {
+          "host": {
+               "revenue": 500
+          },
+          "server": {
+               "revenue": 200
+          },
+          "expeditor": {
+               "revenue": 300
+          }
+     },
+     "revenueGoal": 10000,
+     "shiftStart": "16:00",
+     "shiftEnd": "21:00"
+}
