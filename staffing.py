@@ -1,4 +1,3 @@
-
 def calculate_staffing(total_revenue, num_hours_shift, dict_of_staff_and_costs):
     '''
     :param total_revenue: the total revenue that is expected over the course of the shift
