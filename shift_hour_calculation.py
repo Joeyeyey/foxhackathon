@@ -1,4 +1,5 @@
-def shift_hours_calculator(start_string,  end_string):
+
+def calc(start_string,  end_string):
     '''
     :param start_string: string in 24 hour clock format of the start of the shift
     :param end_string: string in 24 hour clock format of the end of the shift
