@@ -1,4 +1,5 @@
 import pandas
+import os
 
 class username_and_passwords():
     def __init__(self):
@@ -17,6 +18,7 @@ class username_and_passwords():
             return False
 
         return True
+
     def check_username(self, name):
         try:
             # get the index from the dataframe
@@ -37,7 +39,7 @@ class username_and_passwords():
         # mel_count = a['Names'].str.contains('Mel').sum()
         count = self.users['user'].str.contains(user).sum()
         if count > 0:
-            print('user already exists')
+            print('user already exists so it cannot be made')
             return False
 
         max_index = self.users.index.max()
@@ -48,10 +50,21 @@ class username_and_passwords():
         # concat dataframes and write to file
         result = pandas.concat(frames)
         result.to_csv('users.csv', encoding='utf-8', index=False)
-        print(result)
+
+        from gui import path_to_jsons
+        print(path_to_jsons)
+
+        user_folder_path = os.path.join(path_to_jsons,user)
+        if os.path.exists(user_folder_path):
+            print('tried to create a user folder but the folder already exists')
+            print('there may be a large issue in the code!!!')
+        else:
+            os.mkdir(user_folder_path)
+
+
 if __name__ == '__main__':
     usr = username_and_passwords()
-    usr.create_new_user('allen', 'hash999')
+    usr.create_new_user('all3en', 'hash999')
     # ret = usr.check_login('john', 'hash2')
     # print('ret value is %s' % ret)
 
