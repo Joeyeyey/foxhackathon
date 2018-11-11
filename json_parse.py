@@ -1,15 +1,11 @@
 import json
 from shift_length import calc
 
-class shift_data():
-    def __init__(self, revenue, shift_start, shift_end, host,server,expeditor):
-        self.host_expected = host
-        self.server_expected = server
-        self.expeditor_expected = expeditor
-
+class parsed_data():
+    def __init__(self, revenue, hours, worker_dictionary):
         self.revenue = revenue
-
-        self.shift_time = calc(shift_start, shift_end)
+        self.hours = hours
+        self.worker_dictionary = worker_dictionary
 
 
 
@@ -19,18 +15,21 @@ def parser(input_json):
     :return: an object containing all the information about the shift
     '''
     base_staff = input_json['staffTypes']
-
-    host = base_staff['host']['revenue']
-    server = base_staff['server']['revenue']
-    expeditor = base_staff['expeditor']['revenue']
+    worker_dictionary = {}
+    for worker_type in base_staff:
+        rev = base_staff[worker_type]['revenue']
+        worker_dictionary[worker_type] = rev
 
     revenue = input_json['revenueGoal']
     shift_start = input_json['shiftStart']
     shift_end = input_json['shiftEnd']
 
-    obj = shift_data(revenue, shift_start, shift_end, host,server,expeditor)
+    hours = calc(shift_start, shift_end)
+
+    obj = parsed_data(revenue, hours, worker_dictionary)
 
     return obj
+
 
 
 
