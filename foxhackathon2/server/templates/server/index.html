@@ -1,0 +1,11 @@
+{% extends "server/base.html" %}
+
+{% block content %}
+     <form method="post" action="">
+     <input type="text" name="date" id="date{{forloop.counter}}"
+     value="{{date.id}}">
+     <input type="text" name="mood" id="mood{{forloop.counter}}"
+     value="{{mood.id}}">
+     <input type="submit" value="Add">
+     </form>
+{% endblock %}
