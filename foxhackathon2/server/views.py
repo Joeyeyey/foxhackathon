@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Employee
+import csv
 
 def index(request):
     #check for existing employees

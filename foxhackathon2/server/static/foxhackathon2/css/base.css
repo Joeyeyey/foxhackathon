@@ -41,3 +41,10 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+.textfield {
+     text-align: center;
+     margin:auto;
+     margin-top: 10px;
+     padding-right: 25%;
+}

@@ -2,22 +2,24 @@
 
 {% block content %}
 
-     <input type="text" id="in_name" class="name">
-     <input type="text" id="in_revenue" class="revenue">
+{% for i in num_existing_employees %}
+
+     <input type='text' class="textfield" id='name{{ forloop.counter0 }}' value=
+     {{ name }} id='database_entry' readonly>
+     <input type='text' class="textfield" id='revenue{{forloop.counter0 }}'
+     id = 'database_entry' value={{ name }} readonly>
+     <button onclick="removeItem()">X</button>
+     <br>
+
+{% endfor %}
+
+     <input type="text" id="in_name" class="textfield">
+     <input type="text" id="in_revenue" class="textfield">
      <button onclick="addItem()">+</button>
      <br>
 
      <form method="post">
      {% csrf_token %}
-
-     {% for i in num_existing_employees %}
-
-          <input type='text' id='name{{ forloop.counter0 }}' value={{ forloop.counter0 }} readonly>
-          <input type='text' id='revenue{{forloop.counter0 }}' value={{ forloop.counter0 }} readonly>
-          <button onclick="removeItem()">X</button>
-          <br>
-
-     {% endfor %}
 
      <input type="submit">
      </form>
