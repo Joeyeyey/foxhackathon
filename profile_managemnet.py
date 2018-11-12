@@ -4,15 +4,15 @@ import os
 class username_and_passwords():
     def __init__(self):
         self.users = pandas.read_csv('users.csv')
-        print(self.users)
-
+        print('in inti')
 
     def check_login(self, user,password):
+        print('here1')
         user_confirm = self.check_username(user)
         # the username does not exist, return back with False
         if user_confirm == None:
             return False
-        pass_confirm =self.check_password(password, user_confirm)
+        pass_confirm =self.check_password( password, user_confirm)
         # the username was ok but the password is wrong
         if pass_confirm == None:
             return False
@@ -20,6 +20,7 @@ class username_and_passwords():
         return True
 
     def check_username(self, name):
+        print('here')
         try:
             # get the index from the dataframe
             username_index = self.users['user'][self.users['user'] == name].index[0]
@@ -64,7 +65,5 @@ class username_and_passwords():
 
 if __name__ == '__main__':
     usr = username_and_passwords()
-    usr.create_new_user('all3en', 'hash999')
     # ret = usr.check_login('john', 'hash2')
     # print('ret value is %s' % ret)
-
