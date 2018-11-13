@@ -42,9 +42,28 @@
     .sidenav a {font-size: 18px;}
 }
 
-.textfield .added_employee{
+body {
+     background-image: url("/static/foxhackathon2/images/full-bloom.png");
+     background-repeat: repeat;
+}
+
+.added_employee {
+     margin-left: 20%;
+}
+
+.removeItem, .added_employee_revenue {
+     margin-left: 4px;
+}
+
+input[type=text] {
+     width: 200px;
      text-align: center;
-     margin:auto;
-     margin-top: 10px;
-     width: 38.5%;
+}
+
+#in_name, input[type=submit] {
+     margin-left: 20%;
+}
+
+.database_entry {
+     margin-left: 20%;
 }

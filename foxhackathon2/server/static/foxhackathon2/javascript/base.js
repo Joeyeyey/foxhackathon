@@ -8,19 +8,21 @@ function closeNav() {
 
 //This function will add items when the addition button is clicked
 $(document).ready(function() {
-     var counter = 0
+     var counter = 0;
 
      //Add item
      $("#add").click(function() {
+          // TODO: sanitize user input before inserting it into the
           var name = $("#in_name").val();
           var revenue = $("#in_revenue").val();
 
+          // TODO: add a dropdown list of job types based on user input
           $("#added_employees").append(
                //hide the div after creation
                "<div id='employee" + counter + "\' style='display:none;'>" +
                "<input type='text' class='added_employee' id='employee" + counter + '\' value="' + name + '" readonly>' +
-               "<input type='text' class='added_employee' id='employee" + counter + '\' value="' + revenue + '" readonly>' +
-               "<input type='button' class='removeItem' value='X' id='employee" + counter + "\'></div>"
+               "<input type='text' class='added_employee_revenue' id='employee" + counter + '\' value="' + revenue + '" readonly>' +
+               "<button class='removeItem' onclick='return false;' id='employee" + counter + "\'>X</button></div>"
           );
 
           //show the div with transition
@@ -35,7 +37,7 @@ $(document).ready(function() {
           var employee_id = $(this).attr('id');
 
           //hide div
-          $("#" + employee_id).hide(100, function() {
+          $("#" + employee_id).hide('fast', function() {
                //remove div
                $("#" + employee_id).remove();
           })
