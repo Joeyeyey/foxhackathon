@@ -16,19 +16,28 @@ $(document).ready(function() {
           var revenue = $("#in_revenue").val();
 
           $("#added_employees").append(
-               "<div id=employee" + counter + ">" +
+               //hide the div after creation
+               "<div id='employee" + counter + "\' style='display:none;'>" +
                "<input type='text' class='added_employee' id='employee" + counter + '\' value="' + name + '" readonly>' +
                "<input type='text' class='added_employee' id='employee" + counter + '\' value="' + revenue + '" readonly>' +
-               "<input type='button' class='added_employee' value='X' id='employee" + counter + "\'></div>"
+               "<input type='button' class='removeItem' value='X' id='employee" + counter + "\'></div>"
           );
+
+          //show the div with transition
+          $("#employee" + counter).show('fast');
+
           name = 0;
           revenue = 0;
           counter++;
      });
 
-     $("#added_employees").on('click', ".added_employee", function() {
+     $("#added_employees").on('click', ".removeItem", function() {
           var employee_id = $(this).attr('id');
 
-          $("#" + employee_id).remove();
+          //hide div
+          $("#" + employee_id).hide(100, function() {
+               //remove div
+               $("#" + employee_id).remove();
+          })
      });
 });
