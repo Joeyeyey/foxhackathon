@@ -42,9 +42,9 @@
     .sidenav a {font-size: 18px;}
 }
 
-.textfield {
+.textfield .added_employee{
      text-align: center;
      margin:auto;
      margin-top: 10px;
-     padding-right: 25%;
+     width: 38.5%;
 }
