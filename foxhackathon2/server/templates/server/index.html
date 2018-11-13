@@ -1,25 +1,27 @@
 {% extends "server/base.html" %}
 
 {% block content %}
-
-     <form method="post">
-     {% csrf_token %}
-          <input type="text" id="in_name" placeholder="Name">
-          <input type="text" id="in_revenue" placeholder="Revenue">
-          <button id="add" onclick="return false;">+</button>
-          <br>
-          <input type="submit" name='form_submission' value='Submit'>
-          <div id="added_employees"></div>
-     </form>
+     <div class="textfields">
+          <form method="post">
+          {% csrf_token %}
+               <input type="text" id="in_name" placeholder="Name">
+               <input type="text" id="in_revenue" placeholder="Revenue">
+               <button id="add" onclick="return false;">+</button>
+               <br>
+               <input type="submit" name='form_submission' value='Submit'>
+               <div id="added_employees"></div>
+          </form>
+     </div>
 
      <h3>DATABASE ENTRIES</h3>
 
      {% for employees in num_existing_employees %}
+          <div class="textfields">
           <input type='text' class="database_entry" id='name{{ forloop.counter0 }}' value='{{employees.name}}' readonly>
           <input type='text' class="database_entry_revenue" id='revenue{{forloop.counter0 }}' value='{{ employees.revenue }}' readonly>
           <button class="removeItem">X</button>
           <br>
-
+          </div>
      {% endfor %}
 
 {% endblock %}

@@ -42,14 +42,16 @@
     .sidenav a {font-size: 18px;}
 }
 
+@media screen and (max-width: 200px) {
+     #in_name, input[type=submit], .added_employee, .database_entry {
+          margin-left: 24%;
+     }
+}
+
 body {
      background-image: url("/static/foxhackathon2/images/full-bloom.png");
      background-repeat: repeat;
      background-position: fixed;
-}
-
-.added_employee {
-     margin-left: 36%;
 }
 
 .removeItem, .added_employee_revenue {
@@ -60,13 +62,16 @@ input[type=text] {
      width: 200px;
      text-align: center;
 }
-
-#in_name, input[type=submit] {
+/*
+#in_name, input[type=submit], .database_entry {
+     text-align: center;
      margin-left: 36%;
-}
+}*/
 
-.database_entry {
-     margin-left: 36%;
+
+
+#added_employees, .textfields {
+     text-align: center;
 }
 
 h3 {
