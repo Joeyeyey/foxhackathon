@@ -12,6 +12,8 @@
           <div id="added_employees"></div>
      </form>
 
+     <h3>DATABASE ENTRIES</h3>
+
      {% for employees in num_existing_employees %}
           <input type='text' class="database_entry" id='name{{ forloop.counter0 }}' value='{{employees.name}}' readonly>
           <input type='text' class="database_entry_revenue" id='revenue{{forloop.counter0 }}' value='{{ employees.revenue }}' readonly>
